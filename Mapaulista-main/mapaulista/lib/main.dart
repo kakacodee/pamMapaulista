@@ -10,8 +10,8 @@ List<Municipios> municipios = [
       'Santos',
       'Sul',
       'Santos, uma cidade costeira no estado de São Paulo, no sul do Brasil, é uma importante extensão do porto marítimo que vai do continente à ilha de São Vicente. O centro urbano da ilha faz fronteira com a Baía de Santos, conhecida pela sua extensa praia e pelo jardim adjacente de 5,3 km de comprimento. O Museu do Café, que ocupa uma bolsa de mercadorias de 1922 preservada na zona histórica, explora o papel fundamental da área para o comércio de café do Brasil.',
-      '#imagem1',
-      '#imagem2',
+      'assets/img/santos.png',
+      'assets/img/santos_second.png',
       '4.0/5'),
   Municipios(
       'São Sebastião', 'Norte', 'descricao', '#imagem1', '#imagem2', '4/5'),
@@ -229,12 +229,12 @@ class PlacesToVisitScreen extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(place['avaliação']!),
-                            Text(municipios[0].avaliacao),
-                            Text(place['nome']!),
-                            Text(municipios[0].nome),
-                            Text(place['região']!),
-                            Text(municipios[0].regiao),
+                            //Text(place['avaliação']!),
+                            Text(municipios[index].avaliacao),
+                            //Text(place['nome']!),
+                            Text(municipios[index].nome),
+                            //Text(place['região']!),
+                            Text(municipios[index].regiao),
                           ],
                         ),
                       ),
@@ -281,8 +281,8 @@ class PlaceDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(place['nome']!),
-        backgroundColor: Colors.black,
+        title: Text(municipios[0].nome),
+        backgroundColor: const Color.fromARGB(255, 115, 113, 113),
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -295,7 +295,7 @@ class PlaceDetailScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      place['nome']!,
+                      municipios[0].nome,
                       style: const TextStyle(
                           fontSize: 32,
                           fontWeight: FontWeight.bold,
@@ -304,7 +304,7 @@ class PlaceDetailScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 16),
                     Image.asset(
-                      place['image']!,
+                      municipios[0].imagem1,
                       fit: BoxFit.cover,
                     ),
                     const SizedBox(height: 16),
@@ -317,7 +317,7 @@ class PlaceDetailScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 16),
                     Image.asset(
-                      place['second_image']!,
+                      municipios[0].imagem2,
                       fit: BoxFit.cover,
                     ),
                     const SizedBox(height: 16),
