@@ -285,6 +285,7 @@ class PlaceDetailScreen extends StatelessWidget {
         backgroundColor: const Color.fromARGB(255, 115, 113, 113),
         elevation: 0,
       ),
+      //a
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
