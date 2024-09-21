@@ -9,12 +9,15 @@ void main() {
 
 void _abrirLink() async {
   const url = 'https://whatsapp.com/channel/0029Vap5ukx9Bb67fCzfHu0S';
-  if (await canLaunchUrl(Uri.parse(url))) {
-    await canLaunchUrl(Uri.parse(url));
-  }else{
+  final uri = Uri.parse(url);
+  
+  if (await canLaunchUrl(uri)) {
+    await launchUrl(uri); // Use launchUrl to open the URL
+  } else {
     throw 'Could not launch $url';
   }
 }
+
 List<Municipios> municipios = [
   Municipios(
       'Santos',
@@ -198,6 +201,12 @@ class PlacesToVisitScreen extends StatelessWidget {
                   'Litoral',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
+              ElevatedButton(
+  onPressed:
+    _abrirLink
+  ,
+  child: Text('Canal Transmissão - WhatsApp'),
+),
               ],
             ),
           ),
@@ -215,6 +224,7 @@ class PlacesToVisitScreen extends StatelessWidget {
                               builder: (context) =>
                                   PlaceDetailScreen(place: place),
                             ),
+                            
                           );
                         }
                       : null,
@@ -355,7 +365,7 @@ class PlaceDetailScreen extends StatelessWidget {
                           )),
                       child: const Text('Ir ao Mapa'),
                     ),
-                    const ElevatedButton(onPressed: _abrirLink, child: Text('Canal de transmissão - WhatsApp'))
+                    
                   ],
                 ),
               ),
