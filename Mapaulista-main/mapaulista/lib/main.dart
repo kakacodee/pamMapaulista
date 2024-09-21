@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:mapaulista/municipios.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 void main() {
   runApp(const MyApp());
 }
 
+void _abrirLink() async {
+  const url = 'https://whatsapp.com/channel/0029Vap5ukx9Bb67fCzfHu0S';
+  if (await canLaunchUrl(Uri.parse(url))) {
+    await canLaunchUrl(Uri.parse(url));
+  }else{
+    throw 'Could not launch $url';
+  }
+}
 List<Municipios> municipios = [
   Municipios(
       'Santos',
@@ -345,14 +355,19 @@ class PlaceDetailScreen extends StatelessWidget {
                           )),
                       child: const Text('Ir ao Mapa'),
                     ),
+                    const ElevatedButton(onPressed: _abrirLink, child: Text('Canal de transmissão - WhatsApp'))
                   ],
                 ),
               ),
             ],
           ),
+          
         ),
+        
       ),
+      
       backgroundColor: const Color.fromARGB(255, 1, 23, 73),
+      
     );
   }
 }
